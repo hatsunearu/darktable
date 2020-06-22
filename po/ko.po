@@ -4,43 +4,43 @@
 # This file is distributed under the same license as the PACKAGE package.
 # hatsunearu <me@hatsunearu.xyz>, 2020.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: darktable\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-12 21:55-0400\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2020-06-13 19:32-0400\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 2.3\n"
 
 #: ../build/data/darktable.desktop.in.h:1 ../data/darktable.desktop.in.h:1
 msgid "Virtual Lighttable and Darkroom"
-msgstr ""
+msgstr "가상 라이트테이블과 다크룸"
 
 #: ../build/data/darktable.desktop.in.h:2 ../data/darktable.appdata.xml.in.h:1
 #: ../data/darktable.desktop.in.h:2
 msgid "Organize and develop images from digital cameras"
-msgstr ""
+msgstr "디지털 카메라 사진 정리 및 편집"
 
 #. TRANSLATORS: Search terms to find this application. Do NOT translate or localize the semicolons! The list MUST also end with a semicolon!
 #: ../build/data/darktable.desktop.in.h:4 ../data/darktable.desktop.in.h:4
 msgid "graphics;photography;raw;"
-msgstr ""
+msgstr "graphics;photography;raw;"
 
 #: ../build/src/preferences_gen.h:1908 ../src/libs/tools/lighttable.c:79
 #: ../src/views/lighttable.c:87
 msgid "lighttable"
-msgstr ""
+msgstr "라이트테이블"
 
 #: ../build/src/preferences_gen.h:1911
 msgid "color manage cached thumbnails"
-msgstr ""
+msgstr "저장된 섬네일 색상 관리"
 
 #: ../build/src/preferences_gen.h:1921 ../build/src/preferences_gen.h:1942
 #: ../build/src/preferences_gen.h:2018 ../build/src/preferences_gen.h:2039
@@ -85,7 +85,7 @@ msgstr ""
 #: ../src/lua/preferences.c:738
 #, c-format
 msgid "double click to reset to `%s'"
-msgstr ""
+msgstr "더블클릭 하여 `%s' 으로 리셋"
 
 #: ../build/src/preferences_gen.h:1921 ../build/src/preferences_gen.h:2039
 #: ../build/src/preferences_gen.h:2668 ../build/src/preferences_gen.h:2710
@@ -99,7 +99,7 @@ msgstr ""
 #: ../build/src/preferences_gen.h:4025 ../build/src/preferences_gen.h:4272
 msgctxt "preferences"
 msgid "TRUE"
-msgstr ""
+msgstr "설정"
 
 #: ../build/src/preferences_gen.h:1924
 msgid ""
@@ -107,10 +107,13 @@ msgid ""
 "filmstrip can show correct colors. otherwise the results may look wrong once "
 "the display profile gets changed."
 msgstr ""
+"이 옵션이 켜져 있다면 저장된 섬네일이 라이트테이블과 필름스트립이 정상적인 색"
+"상을 표현할 수 있도록 색상 관리가 됩니다. 만일 꺼져 있다면 디스플레이 색상 프"
+"로필이 변경될 때 색상이 올바르지 못하게 나타날 수 있습니다."
 
 #: ../build/src/preferences_gen.h:1932
 msgid "don't use embedded preview JPEG but half-size raw"
-msgstr ""
+msgstr "프리뷰 생성 시 내장 JPEG 대신 반 사이즈 RAW 사용"
 
 #: ../build/src/preferences_gen.h:1942 ../build/src/preferences_gen.h:2223
 #: ../build/src/preferences_gen.h:2244 ../build/src/preferences_gen.h:2265
@@ -126,17 +129,19 @@ msgstr ""
 #: ../build/src/preferences_gen.h:4425 ../build/src/preferences_gen.h:4630
 msgctxt "preferences"
 msgid "FALSE"
-msgstr ""
+msgstr "해제"
 
 #: ../build/src/preferences_gen.h:1945
 msgid ""
 "check this option to not use the embedded JPEG from the raw file but process "
 "the raw data. this is slower but gives you color managed thumbnails."
 msgstr ""
+"이 옵션이 켜져 있다면 섬네일을 생성할 때 RAW 파일에 내장되어 있는 JPEG 파일"
+"을 "
 
 #: ../build/src/preferences_gen.h:1953
 msgid "number of folder levels to show in lists"
-msgstr ""
+msgstr "리스트에서 표기할 폴더 단계"
 
 #: ../build/src/preferences_gen.h:1973 ../build/src/preferences_gen.h:2740
 #: ../build/src/preferences_gen.h:2947 ../build/src/preferences_gen.h:3006
@@ -145,13 +150,13 @@ msgstr ""
 #: ../build/src/preferences_gen.h:4551 ../src/lua/preferences.c:697
 #, c-format
 msgid "double click to reset to `%d'"
-msgstr ""
+msgstr "더블클릭 하여 `%d' 으로 리셋"
 
 #: ../build/src/preferences_gen.h:1976
 msgid ""
 "the number of folder levels to show in film roll names, starting from the "
 "right"
-msgstr ""
+msgstr "오른쪽부터 필름 롤 이름에서 표기할 폴더 단계"
 
 #: ../build/src/preferences_gen.h:1984
 msgid "sort film rolls by"
@@ -1605,7 +1610,6 @@ msgstr ""
 msgid "%d image of %d in current collection is selected"
 msgid_plural "%d images of %d in current collection are selected"
 msgstr[0] ""
-msgstr[1] ""
 
 #. init the category profile with NULL profile, the actual profile must be retrieved dynamically by the caller
 #: ../src/common/colorspaces.c:1380 ../src/common/colorspaces.c:1636
@@ -1977,13 +1981,11 @@ msgstr ""
 msgid "do you want to remove this empty directory?"
 msgid_plural "do you want to remove these empty directories?"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/common/film.c:276
 msgid "remove empty directory?"
 msgid_plural "remove empty directories?"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/common/film.c:295 ../src/gui/preferences.c:703
 #: ../src/gui/styles_dialog.c:385
@@ -2084,7 +2086,6 @@ msgstr ""
 msgid "%d local copy has been synchronized"
 msgid_plural "%d local copies have been synchronized"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/common/imageio.c:645 ../src/common/mipmap_cache.c:1065
 #, c-format
@@ -2239,14 +2240,12 @@ msgstr ""
 msgid "rejecting %d image"
 msgid_plural "rejecting %d images"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/common/ratings.c:171
 #, c-format
 msgid "applying rating %d to %d image"
 msgid_plural "applying rating %d to %d images"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/common/ratings.c:185
 msgid "no images selected to apply rating"
@@ -2294,7 +2293,6 @@ msgstr ""
 msgid "style successfully applied!"
 msgid_plural "styles successfully applied!"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/common/styles.c:743
 #, c-format
@@ -2379,7 +2377,6 @@ msgstr ""
 msgid "capturing %d image"
 msgid_plural "capturing %d images"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/camera_jobs.c:120
 msgid "please set your camera to manual mode first!"
@@ -2394,7 +2391,6 @@ msgstr ""
 msgid "%d/%d imported to %s"
 msgid_plural "%d/%d imported to %s"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/camera_jobs.c:331
 msgid "starting to import images from camera"
@@ -2405,7 +2401,6 @@ msgstr ""
 msgid "importing %d image from camera"
 msgid_plural "importing %d images from camera"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/camera_jobs.c:399 ../src/gui/camera_import_dialog.c:218
 msgid "import images from camera"
@@ -2428,7 +2423,6 @@ msgstr ""
 msgid "merging %d image"
 msgid_plural "merging %d images"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:508
 #, c-format
@@ -2440,21 +2434,18 @@ msgstr ""
 msgid "duplicating %d image"
 msgid_plural "duplicating %d images"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:565
 #, c-format
 msgid "flipping %d image"
 msgid_plural "flipping %d images"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:640
 #, c-format
 msgid "removing %d image"
 msgid_plural "removing %d images"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:742
 #, c-format
@@ -2499,14 +2490,12 @@ msgstr ""
 msgid "trashing %d image"
 msgid_plural "trashing %d images"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:907
 #, c-format
 msgid "deleting %d image"
 msgid_plural "deleting %d images"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:1034
 msgid "failed to parse GPX file"
@@ -2517,7 +2506,6 @@ msgstr ""
 msgid "applied matched GPX location onto %d image"
 msgid_plural "applied matched GPX location onto %d images"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:1114
 #, c-format
@@ -2544,28 +2532,24 @@ msgstr ""
 msgid "creating local copy of %d image"
 msgid_plural "creating local copies of %d images"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:1139
 #, c-format
 msgid "removing local copy of %d image"
 msgid_plural "removing local copies of %d images"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:1177
 #, c-format
 msgid "refreshing info for %d image"
 msgid_plural "refreshing info for %d images"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:1242
 #, c-format
 msgid "exporting %d image.."
 msgid_plural "exporting %d images.."
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:1274
 #, c-format
@@ -2600,7 +2584,6 @@ msgstr ""
 msgid "do you really want to remove %d image from the collection?"
 msgid_plural "do you really want to remove %d images from the collection?"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:1434
 msgid "remove images?"
@@ -2617,14 +2600,12 @@ msgstr ""
 msgid "do you really want to send %d image to trash?"
 msgid_plural "do you really want to send %d images to trash?"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:1472
 #, c-format
 msgid "do you really want to physically delete %d image from disk?"
 msgid_plural "do you really want to physically delete %d images from disk?"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:1479
 #: ../src/control/jobs/control_jobs.c:1517
@@ -2662,13 +2643,11 @@ msgid_plural ""
 "do you really want to physically move %d images to %s?\n"
 "(all duplicates will be moved along)"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:1577
 msgid "move image?"
 msgid_plural "move images?"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:1598
 msgid "copy images"
@@ -2679,13 +2658,11 @@ msgstr ""
 msgid "do you really want to physically copy %d image to %s?"
 msgid_plural "do you really want to physically copy %d images to %s?"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:1637
 msgid "copy image?"
 msgid_plural "copy images?"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:1657
 #: ../src/control/jobs/control_jobs.c:1665
@@ -2710,14 +2687,12 @@ msgstr ""
 msgid "adding time offset to %d image"
 msgid_plural "adding time offset to %d images"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:1792
 #, c-format
 msgid "added time offset to %d image"
 msgid_plural "added time offset to %d images"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/control_jobs.c:1831 ../src/libs/geotagging.c:782
 msgid "time offset"
@@ -2740,7 +2715,6 @@ msgstr ""
 msgid "importing %d image"
 msgid_plural "importing %d images"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/control/jobs/image_jobs.c:76
 #, c-format
@@ -2909,7 +2883,6 @@ msgstr ""
 msgid "%d shape used"
 msgid_plural "%d shapes used"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/develop/blend_gui.c:1793 ../src/develop/blend_gui.c:1843
 #: ../src/develop/blend_gui.c:1937 ../src/develop/blend_gui.c:2049
@@ -3429,7 +3402,6 @@ msgstr ""
 msgid "%s has been imported"
 msgid_plural "%s have been imported"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/develop/masks/masks.c:157
 msgid "[SHAPE] remove shape"
@@ -5481,7 +5453,6 @@ msgstr ""
 msgid "%d/%d skipping `%s'"
 msgid_plural "%d/%d skipping `%s'"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/imageio/storage/disk.c:339 ../src/imageio/storage/email.c:144
 #: ../src/imageio/storage/gallery.c:400 ../src/imageio/storage/latex.c:364
@@ -5489,7 +5460,6 @@ msgstr[1] ""
 msgid "%d/%d exported to `%s'"
 msgid_plural "%d/%d exported to `%s'"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/imageio/storage/disk.c:398
 msgid ""
@@ -5650,7 +5620,6 @@ msgstr ""
 msgid "%d/%d exported to piwigo webalbum"
 msgid_plural "%d/%d exported to piwigo webalbum"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/iop/ashift.c:112
 msgid "perspective correction"
@@ -9861,7 +9830,6 @@ msgstr ""
 msgid "fixed %d pixel"
 msgid_plural "fixed %d pixels"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/iop/hotpixels.c:466
 msgid "lower threshold for hot pixel"
@@ -12862,7 +12830,6 @@ msgid_plural ""
 "no history compression of %d images.\n"
 "see tag: darktable|problem|history-compress."
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/libs/copy_history.c:182
 msgid "history compression warning"
@@ -12873,7 +12840,6 @@ msgstr ""
 msgid "do you really want to clear history of %d selected image?"
 msgid_plural "do you really want to clear history of %d selected images?"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/libs/copy_history.c:235
 msgid "delete images' history?"
@@ -14346,7 +14312,6 @@ msgstr ""
 msgid "image has %d star"
 msgid_plural "image has %d stars"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/libs/metadata_view.c:445 ../src/libs/snapshots.c:467
 msgid "unknown"
@@ -14907,13 +14872,11 @@ msgstr ""
 msgid "do you really want to remove %d style?"
 msgid_plural "do you really want to remove %d styles?"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/libs/styles.c:333
 msgid "remove style?"
 msgid_plural "remove styles?"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/libs/styles.c:392
 msgid "select style"
@@ -15037,7 +15000,6 @@ msgid_plural ""
 "do you really want to delete the tag `%s'?\n"
 "%d images are assigned this tag!"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/libs/tagging.c:1353
 #, c-format
@@ -15053,7 +15015,6 @@ msgstr ""
 msgid "<u>%d</u> tag will be deleted."
 msgid_plural "<u>%d</u> tags will be deleted."
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/libs/tagging.c:1412 ../src/libs/tagging.c:1618
 #: ../src/libs/tagging.c:1836
@@ -15061,7 +15022,6 @@ msgstr[1] ""
 msgid "<u>%d</u> image will be updated"
 msgid_plural "<u>%d</u> images will be updated "
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/libs/tagging.c:1438
 #, c-format
@@ -15107,7 +15067,6 @@ msgstr ""
 msgid "<u>%d</u> tag will be updated."
 msgid_plural "<u>%d</u> tags will be updated."
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/libs/tagging.c:1674
 msgid ""
@@ -16294,7 +16253,6 @@ msgstr ""
 msgid "slideshow delay set to %d second"
 msgid_plural "slideshow delay set to %d seconds"
 msgstr[0] ""
-msgstr[1] ""
 
 #: ../src/views/slideshow.c:621
 msgctxt "accel"
