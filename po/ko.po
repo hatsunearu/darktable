@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: darktable\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-06-12 21:55-0400\n"
-"PO-Revision-Date: 2020-06-21 21:33-0400\n"
+"PO-Revision-Date: 2020-06-21 22:44-0400\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -203,32 +203,32 @@ msgstr "저해상도"
 #: ../build/src/preferences_gen.h:2071
 msgctxt "preferences"
 msgid "VGA"
-msgstr ""
+msgstr "VGA"
 
 #: ../build/src/preferences_gen.h:2076 ../build/src/preferences_gen.h:2119
 msgctxt "preferences"
 msgid "720p"
-msgstr ""
+msgstr "720p"
 
 #: ../build/src/preferences_gen.h:2081
 msgctxt "preferences"
 msgid "1080p"
-msgstr ""
+msgstr "1080p"
 
 #: ../build/src/preferences_gen.h:2086
 msgctxt "preferences"
 msgid "WQXGA"
-msgstr ""
+msgstr "WQXGA"
 
 #: ../build/src/preferences_gen.h:2091
 msgctxt "preferences"
 msgid "4K"
-msgstr ""
+msgstr "4K"
 
 #: ../build/src/preferences_gen.h:2096
 msgctxt "preferences"
 msgid "5K"
-msgstr ""
+msgstr "5K"
 
 #: ../build/src/preferences_gen.h:2101 ../build/src/preferences_gen.h:3775
 #: ../build/src/preferences_gen.h:3904
@@ -241,7 +241,7 @@ msgid ""
 "if the thumbnail size is greater than this value, it will be processed using "
 "the full quality rendering path (better but slower)."
 msgstr ""
-"섬네일 사이즈가 이 설정 크기보다 클 때, 고급 렌더링 방식(품질이 좋지만 느림)"
+"썸네일 사이즈가 이 설정 크기보다 클 때, 고급 렌더링 방식(품질이 좋지만 느림)"
 "을 사용하여 생성됩니다. "
 
 #: ../build/src/preferences_gen.h:2130
@@ -300,7 +300,7 @@ msgstr "라이트테이블 모듈 1개씩 펼치기"
 
 #: ../build/src/preferences_gen.h:2268
 msgid "this option toggles the behavior of shift clicking in lighttable mode"
-msgstr "쉬프트 클릭을 할 때 행동을 설정합니다."
+msgstr "시프트 클릭을 할 때 행동을 설정합니다"
 
 #: ../build/src/preferences_gen.h:2276
 msgid "scroll to lighttable modules when expanded/collapsed"
@@ -310,7 +310,7 @@ msgstr "접혀있을때/펼쳐져 있을 때 라이트테이블 모듈로 바로
 msgid ""
 "when this option is enabled then darktable will try to scroll the module to "
 "the top of the visible list"
-msgstr "이 옵션을 설정하면 모듈을 목록 제일 위로 스크롤 합니다."
+msgstr "이 옵션을 설정하면 모듈을 목록 제일 위로 스크롤 합니다"
 
 #: ../build/src/preferences_gen.h:2297
 msgid "rating an image one star twice will not zero out the rating"
@@ -330,7 +330,7 @@ msgstr "중앙 패널에서 스크롤 바 보이기"
 
 #: ../build/src/preferences_gen.h:2331 ../build/src/preferences_gen.h:2764
 msgid "defines whether scrollbars should be displayed"
-msgstr "중앙 패널에서 스크롤 바를 보이게 할 지 설정합니다."
+msgstr "중앙 패널에서 스크롤 바를 보이게 할 지 설정합니다"
 
 #: ../build/src/preferences_gen.h:2358 ../src/views/darkroom.c:110
 msgid "darkroom"
@@ -485,7 +485,7 @@ msgstr "다크룸 모듈 1개씩 펼치기"
 
 #: ../build/src/preferences_gen.h:2671
 msgid "this option toggles the behavior of shift clicking in darkroom mode"
-msgstr "다크룸 모드에서 시프트 클릭을 할 때 행동을 설정합니다."
+msgstr "다크룸 모드에서 시프트 클릭을 할 때 행동을 설정합니다"
 
 #: ../build/src/preferences_gen.h:2679
 msgid "expand the module when it is activated, and collapse it when disabled"
@@ -542,8 +542,8 @@ msgid ""
 msgstr ""
 "다크룸에서 1:1 비율로 보지 않는 경우 보간을 어떻게 할지 설정합니다. bilinear"
 "는 가장 빠르지만, 선명도가 낮습니다. PPG와 기타 보간 방식을 사용하는 것은 적"
-"절한 타협책이고, 최대 품질은 실제 내보내기를 할 때와 같은 알고리즘을 사용합니"
-"다. X-Trans 센서는 PPG 대신 VNG 방식을 사용합니다."
+"절한 타협책이고, 최대 품질은 출력을 할 때와 같은 알고리즘을 사용합니다. X-"
+"Trans 센서는 PPG 대신 VNG 방식을 사용합니다."
 
 #: ../build/src/preferences_gen.h:2822
 msgid "reduce resolution of preview image"
@@ -585,7 +585,7 @@ msgstr "지도 / 위치정보"
 
 #: ../build/src/preferences_gen.h:2907
 msgid "only draw images on map that are currently collected and filtered"
-msgstr ""
+msgstr "이미 모아지고 걸러진 이미지만 지도에 표시"
 
 #: ../build/src/preferences_gen.h:2920
 msgid ""
@@ -593,88 +593,93 @@ msgid ""
 "map, i.e. limit the images drawn to the current filmstrip. this limits the "
 "number of images drawn and thus reduces the time needed to draw the images."
 msgstr ""
+"현재 필터 설정으로 선택되고 위치정보가 기록된 이미지만 지도에 표시합니다. "
+"즉, 현재 필름스트립의 이미지만 쓰도록 제한합니다. 전시되는 이미지의 개수를 제"
+"한함으로서 그리는 시간을 단축합니다."
 
 #: ../build/src/preferences_gen.h:2928
 msgid "maximum number of images drawn on map"
-msgstr ""
+msgstr "지도에 표시되는 이미지 최대 개수"
 
 #: ../build/src/preferences_gen.h:2950
 msgid ""
 "the maximum number of geotagged images drawn on the map. increasing this "
 "number can slow drawing of the map down."
 msgstr ""
+"지도에 표시되는 이미지를 제한합니다. 이 숫자를 증가하면 지도를 그리는 시간이 "
+"늘어납니다."
 
 #: ../build/src/preferences_gen.h:2958
 msgid "pretty print the image location"
-msgstr ""
+msgstr "이미지 위치정보를 예쁘게 표시"
 
 #: ../build/src/preferences_gen.h:2971
 msgid ""
 "show a more readable representation of the location in the image information "
 "module"
-msgstr ""
+msgstr "이미지 위치를 이미지 정보 모듈에서 좀 더 적절하게 표시합니다. "
 
 #: ../build/src/preferences_gen.h:2979 ../src/views/slideshow.c:344
 msgid "slideshow"
-msgstr ""
+msgstr "슬라이드쇼"
 
 #: ../build/src/preferences_gen.h:2987
 msgid "waiting time between each picture in slideshow"
-msgstr ""
+msgstr "슬라이드쇼에서 각 이미지 당 전시하는 시간"
 
 #: ../build/src/preferences_gen.h:3016
 msgid "do high quality processing for slideshow"
-msgstr ""
+msgstr "슬라이드쇼에서 고품질 프로세싱"
 
 #: ../build/src/preferences_gen.h:3029
 msgid "same option as for export, but applies to slideshow."
-msgstr ""
+msgstr "출력할 때와 같은 옵션이지만, 슬라이드쇼에 적용됩니다."
 
 #: ../build/src/preferences_gen.h:3056
 msgid "processing"
-msgstr ""
+msgstr "프로세싱"
 
 #: ../build/src/preferences_gen.h:3059
 msgid "always use LittleCMS 2 to apply output color profile"
-msgstr ""
+msgstr "출력 색상 프로필을 LittleCMS 2로 고정"
 
 #: ../build/src/preferences_gen.h:3072
 msgid "this is slower than the default."
-msgstr ""
+msgstr "기본 값보다 약간 느립니다."
 
 #: ../build/src/preferences_gen.h:3080
 msgid "pixel interpolator"
-msgstr ""
+msgstr "픽셀 보간 알고리즘"
 
 #: ../build/src/preferences_gen.h:3091
 msgctxt "preferences"
 msgid "bilinear"
-msgstr ""
+msgstr "bilinear"
 
 #: ../build/src/preferences_gen.h:3096
 msgctxt "preferences"
 msgid "bicubic"
-msgstr ""
+msgstr "bicubic"
 
 #: ../build/src/preferences_gen.h:3101
 msgctxt "preferences"
 msgid "lanczos2"
-msgstr ""
+msgstr "lanczos2"
 
 #: ../build/src/preferences_gen.h:3106 ../build/src/preferences_gen.h:3124
 msgctxt "preferences"
 msgid "lanczos3"
-msgstr ""
+msgstr "lanczos3"
 
 #: ../build/src/preferences_gen.h:3127
 msgid ""
 "pixel interpolator used in rotation and lens correction (bilinear, bicubic, "
 "lanczos2, lanczos3)."
-msgstr ""
+msgstr "사진 회전이나 렌즈 보정 시 사용할 픽셀 보간(interpolation) 알고리즘"
 
 #: ../build/src/preferences_gen.h:3135
 msgid "3D lut root folder"
-msgstr ""
+msgstr "3D LUT 루트 폴더"
 
 #: ../build/src/preferences_gen.h:3140 ../src/control/jobs/control_jobs.c:1546
 #: ../src/control/jobs/control_jobs.c:1609 ../src/gui/preferences.c:1880
@@ -683,32 +688,34 @@ msgstr ""
 #: ../src/imageio/storage/latex.c:107 ../src/imageio/storage/latex.c:179
 #: ../src/libs/styles.c:367 ../src/lua/preferences.c:631
 msgid "select directory"
-msgstr ""
+msgstr "디렉토리 선택"
 
 #: ../build/src/preferences_gen.h:3153
 msgid ""
 "this folder (and sub-folders) contains Lut files used by lut3d modules. need "
 "to restart darktable."
 msgstr ""
+"lut3d 모듈에서 쓰는 LUT 파일을 담고 있는 최상위 디렉토리 입니다. 재설정 시 "
+"darktable을 재시작 해야 합니다. "
 
 #: ../build/src/preferences_gen.h:3161
 msgid "auto-apply pixel workflow defaults"
-msgstr ""
+msgstr "픽셀 작업 흐름 기본 값 자동 적용"
 
 #: ../build/src/preferences_gen.h:3172
 msgctxt "preferences"
 msgid "scene-referred"
-msgstr ""
+msgstr "피사체 기반"
 
 #: ../build/src/preferences_gen.h:3177 ../build/src/preferences_gen.h:3200
 msgctxt "preferences"
 msgid "display-referred"
-msgstr ""
+msgstr "화면 기반"
 
 #: ../build/src/preferences_gen.h:3182 ../build/src/preferences_gen.h:4298
 msgctxt "preferences"
 msgid "none"
-msgstr ""
+msgstr "적용하지 않음"
 
 #: ../build/src/preferences_gen.h:3203
 msgid ""
@@ -717,20 +724,25 @@ msgid ""
 "display-referred workflow is based on Lab modules and will auto-apply base "
 "curve and the legacy module pipe order. (needs a restart)"
 msgstr ""
+"피사체 기반 작업 흐름은 선형 모듈을 기반으로 하며, filmic과 노출 모듈을 자동"
+"으로 적용합니다.\n"
+"화면 기반 작업 흐름은 Lab 모듈을 기반으로 하며, 베이스 커브 모듈과 기존 모듈 "
+"적용 순서를 사용합니다. (재시작 필요)"
 
 #: ../build/src/preferences_gen.h:3211
 msgid "auto-apply per camera basecurve presets"
-msgstr ""
+msgstr "카메라 별 베이스 커브 프리셋 적용"
 
 #: ../build/src/preferences_gen.h:3224
 msgid ""
 "use the per-camera basecurve by default instead of the generic manufacturer "
 "one if there is one available (needs a restart)"
 msgstr ""
+"제조사 별 베이스 커브 프리셋 대신에 카메라 별 프리셋을 자동으로 적용합니다."
 
 #: ../build/src/preferences_gen.h:3232
 msgid "auto-apply sharpen"
-msgstr ""
+msgstr "자동으로 선명 모듈 적용"
 
 #: ../build/src/preferences_gen.h:3245
 msgid ""
@@ -738,98 +750,106 @@ msgid ""
 "you should disable this option if you use one of those more recent cameras "
 "or sharpen your images with other means. (need a restart)"
 msgstr ""
+"선명 모듈을 추가하는 것은 로우패스필터가 없는 카메라에는 추천되지 않습니다. "
+"로우패스필터가 없는 최신 카메라를 쓰거나, 다른 방식으로 사진에 선명도를 추가"
+"한다면 설정을 안 하는 것을 추천합니다."
 
 #: ../build/src/preferences_gen.h:3272
 msgid "security"
-msgstr ""
+msgstr "안전"
 
 #: ../build/src/preferences_gen.h:3275
 msgid "ask before removing images from database"
-msgstr ""
+msgstr "데이터베이스에서 사진을 지우기 전에 확인하기"
 
 #: ../build/src/preferences_gen.h:3288
 msgid "always ask the user before any image is removed from DB."
-msgstr ""
+msgstr " 데이터베이스에서 사진을 지우기 전에 확인 요청을 미리 합니다."
 
 #: ../build/src/preferences_gen.h:3296
 msgid "ask before erasing images from disk / discarding history stack"
-msgstr ""
+msgstr "이미지를 디스크에서 지우거나 히스토리 스택을 지우기 전에 확인하기"
 
 #: ../build/src/preferences_gen.h:3309
 msgid ""
 "always ask the user before any image file is deleted / history stack is "
 "discarded."
 msgstr ""
+"이미지 파일을 실제로 지우거나 히스토리 스택을 지우기 전에 확인 요청을 미리 합"
+"니다."
 
 #: ../build/src/preferences_gen.h:3317
 msgid "send files to trash when erasing images"
-msgstr ""
+msgstr "이미지를 지울 때 휴지통으로 보내기"
 
 #: ../build/src/preferences_gen.h:3330
 msgid ""
 "send files to trash instead of permanently deleting files on system that "
 "supports it"
 msgstr ""
+"휴지통이 있는 시스템에 한해 파일을 영구 삭제하지 말고 휴지통으로 보내기"
 
 #: ../build/src/preferences_gen.h:3338
 msgid "ask before moving images from film roll folder"
-msgstr ""
+msgstr "필름 롤 폴더에서 이미지를 옮기기 전에 확인하기"
 
 #: ../build/src/preferences_gen.h:3351
 msgid "always ask the user before any image file is moved."
-msgstr ""
+msgstr "이미지 파일이 실제로 옮겨지기 전에 확인을 미리 요청 합니다."
 
 #: ../build/src/preferences_gen.h:3359
 msgid "ask before copying images to new film roll folder"
-msgstr ""
+msgstr "새로운 필름 롤 폴더로 이미지를 옮기기 전에 확인하기"
 
 #: ../build/src/preferences_gen.h:3372
 msgid "always ask the user before any image file is copied."
-msgstr ""
+msgstr "이미지를 옮기기 전에 미리 확인을 받습니다."
 
 #: ../build/src/preferences_gen.h:3380
 msgid "ask before removing empty folders"
-msgstr ""
+msgstr "빈 폴더를 지우기 전에 확인하기"
 
 #: ../build/src/preferences_gen.h:3393
 msgid ""
 "always ask the user before removing any empty folder. this can happen after "
 "moving or deleting images."
 msgstr ""
+"빈 폴더를 지우기 전에 미리 확인을 받습니다. 사진을 삭제하거나 옮긴 후에 발생 "
+"할 수 있습니다."
 
 #: ../build/src/preferences_gen.h:3401
 msgid "ask before deleting a tag"
-msgstr ""
+msgstr "태그를 지우기 전에 확인하기"
 
 #: ../build/src/preferences_gen.h:3421
 msgid "ask before deleting a style"
-msgstr ""
+msgstr "스타일을 지우기 전에 확인하기"
 
 #: ../build/src/preferences_gen.h:3441
 msgid "ask before deleting a preset"
-msgstr ""
+msgstr "프리셋을 지우기 전에 확인하기"
 
 #: ../build/src/preferences_gen.h:3454
 msgid "will ask for confirmation before deleting or overwritting a preset"
-msgstr ""
+msgstr "프리셋을 지우거나 삭제하기 전에 미리 확인을 받습니다."
 
 #: ../build/src/preferences_gen.h:3481
 msgid "cpu / gpu / memory"
-msgstr ""
+msgstr "CPU / GPU / 메모리"
 
 #: ../build/src/preferences_gen.h:3484
 msgid "memory in megabytes to use for thumbnail cache"
-msgstr ""
+msgstr "섬네일 캐시에 사용될 메모리 양(MB)"
 
 #: ../build/src/preferences_gen.h:3506
 msgid ""
 "this controls how much memory is going to be used for thumbnails and other "
 "buffers (needs a restart)."
-msgstr ""
+msgstr "섬네일이나 기타 버퍼에 사용될 메모리 양을 설정합니다. (재시작 필요)"
 
 #: ../build/src/preferences_gen.h:3514
 msgid "enable disk backend for thumbnail cache"
-msgstr ""
+msgstr "섬네일 캐시를 디스크 백엔드에 기록"
 
 #: ../build/src/preferences_gen.h:3527
 msgid ""
@@ -840,10 +860,16 @@ msgid ""
 "be increased greatly when browsing a lot. to generate all thumbnails of your "
 "entire collection offline, run 'darktable-generate-cache'."
 msgstr ""
+"설정된다면 섬네일이 메모리 캐시에서 방출되면 디스크 (.cache/darktable/)에 기"
+"록합니다. 이 설정을 한다면 용량을 매우 많이 차지 할 수 있고, 섬네일을 절대 지"
+"우지 않습니다. (2만 이미지 기준 수 기가바이트 수준) 원한다면 디스크에 기록된 "
+"섬네일은 지워도 됩니다. 이 설정을 한다면 라이트테이블에서 이미지를 확인할 때 "
+"성능이 비약적으로 증가합니다. 컬렉션 전부에 대해 섬네일을 미리 생성하고 싶으"
+"시다면 'darktable-generate-cache'를 실행합니다."
 
 #: ../build/src/preferences_gen.h:3535
 msgid "enable disk backend for full preview cache"
-msgstr ""
+msgstr "고품질 프리뷰 캐시를 디스크 백엔드에 기록"
 
 #: ../build/src/preferences_gen.h:3548
 msgid ""
@@ -853,10 +879,15 @@ msgid ""
 "though to delete these manually, if you want. light table performance will "
 "be increased greatly when zooming image in full preview mode."
 msgstr ""
+"설정된다면 고품질 프리뷰를 메모리 캐시에서 방출되면 디스크 (.cache/"
+"darktable/)에 기록합니다. 이 설정을 한다면 용량을 매우 많이 차지 할 수 있고, "
+"섬네일을 절대 지우지 않습니다. (2만 이미지 기준 수 기가바이트 수준) 원한다면 "
+"디스크에 기록된 섬네일은 지워도 됩니다. 이 설정을 한다면 라이트테이블에서 이"
+"미지를 고품질 프리뷰 모드에서 확인할 때 성능이 비약적으로 증가합니다. "
 
 #: ../build/src/preferences_gen.h:3556
 msgid "number of background threads"
-msgstr ""
+msgstr "백그라운드 스레드 수"
 
 #: ../build/src/preferences_gen.h:3578
 msgid ""
