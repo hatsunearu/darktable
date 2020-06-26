@@ -1550,6 +1550,7 @@ static gchar *get_query_string(const dt_collection_properties_t property, const 
         char *mk = sqlite3_mprintf("%q", tuple->data);
         char *md = sqlite3_mprintf("%q", tuple->next->data);
         query = dt_util_dstrcat(query, " OR (maker = '%s' AND model = '%s')", mk, md);
+        printf("Camera query: %s\n", query); // XXX: Debug
         sqlite3_free(mk);
         sqlite3_free(md);
         g_free(tuple->data);

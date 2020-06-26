@@ -104,6 +104,13 @@ typedef struct _range_t
   GtkTreePath *path2;
 } _range_t;
 
+typedef struct _exactmatch_t
+{
+  gchar **tokens;
+  size_t tokens_len;
+  dt_lib_collect_rule_t *dr;
+} _exactmatch_t;
+
 static void _lib_collect_gui_update(dt_lib_module_t *self);
 static void _lib_folders_update_collection(const gchar *filmroll);
 static void entry_changed(GtkEntry *entry, dt_lib_collect_rule_t *dr);
@@ -511,12 +518,15 @@ static void view_popup_menu(GtkWidget *treeview, GdkEventButton *event, dt_lib_c
 
 static gboolean view_onButtonPressed(GtkWidget *treeview, GdkEventButton *event, dt_lib_collect_t *d)
 {
+  puts("test");
+
   if((d->view_rule == DT_COLLECTION_PROP_FOLDERS && event->type == GDK_BUTTON_PRESS && event->button == 3)
      || (!d->singleclick && event->type == GDK_2BUTTON_PRESS && event->button == 1)
      || (d->singleclick && event->type == GDK_BUTTON_PRESS && event->button == 1))
   {
     GtkTreeSelection *selection = gtk_tree_view_get_selection(GTK_TREE_VIEW(treeview));
     GtkTreePath *path = NULL;
+
 
     /* Get tree path for row that was clicked */
     if(gtk_tree_view_get_path_at_pos(GTK_TREE_VIEW(treeview), (gint)event->x, (gint)event->y, &path, NULL, NULL,
@@ -544,6 +554,7 @@ static gboolean view_onButtonPressed(GtkWidget *treeview, GdkEventButton *event,
       }
       else
       {
+        puts("foobar");
         gtk_tree_selection_unselect_all(selection);
         gtk_tree_selection_select_path(selection, path);
       }
@@ -649,6 +660,9 @@ static gboolean range_select(GtkTreeModel *model, GtkTreePath *path, GtkTreeIter
     if(range->path1)
     {
       range->path2 = gtk_tree_path_copy(path);
+      g_free(haystack);
+      g_free(needle);
+      g_free(str);
       return TRUE;
     }
     else
@@ -863,21 +877,27 @@ static gboolean list_match_string(GtkTreeModel *model, GtkTreePath *path, GtkTre
 
 static gboolean list_exact_match_string(GtkTreeModel *model, GtkTreePath *path, GtkTreeIter *iter, gpointer data)
 {
-  gchar **token_array = (gchar **)data;
+  _exactmatch_t *exactmatch = (_exactmatch_t *)data;
   gchar *str = NULL;
   gboolean visible = FALSE;
+  dt_lib_collect_t *d = get_collect(exactmatch->dr);
 
   gtk_tree_model_get(model, iter, DT_LIB_COLLECT_COL_PATH, &str, -1);
   gchar *haystack = g_utf8_strdown(str, -1);
-  printf("haystack: %s\n", haystack);
 
-  for(gchar *token = *token_array; token != NULL; token = *(++token_array))
+  for(size_t i = 0; i < exactmatch->tokens_len; i++)
   {
-    printf("token: %s\n", token);
-    if(strcmp(haystack, token) == 0)
+    if(strcmp(haystack, exactmatch->tokens[i]) == 0)
     {
+      // this is problematic because of the non numeric ones being set as GTK_SELECTION_SINGLE
+      // if there is only one to be selected, that one is selected, and not others.
+      // someone else can deal with it :P
+      printf("tokens_len: %ld\n", exactmatch->tokens_len);
+      if(exactmatch->tokens_len == 1)
+      {
+        gtk_tree_selection_select_path(gtk_tree_view_get_selection(d->view), path);
+      }
       visible = TRUE;
-      puts("visible");
       break;
     }
   }
@@ -1846,101 +1866,106 @@ static void list_view(dt_lib_collect_rule_t *dr)
     d->view_rule = property;
   }
 
-  // try to match [foo, bar] style exact string
-  GRegex *regex;
-  GMatchInfo *match_info;
-  int match_count;
 
-  regex = g_regex_new("^\\s*\\[\\s*([^\\[\\]]+)\\s*\\]\\s*$", 0, 0, NULL);
-  g_regex_match_full(regex, gtk_entry_get_text(GTK_ENTRY(dr->text)), -1, 0, 0, &match_info, NULL);
-  match_count = g_match_info_get_match_count(match_info);
-  printf("match_count: %d\n", match_count);
 
-  if(match_count == 2)
-  {
-    gchar *inner_str = g_match_info_fetch(match_info, 1);
-    printf("Inner string: %s\n", inner_str);
-
-    int num_tokens = 1;
-    for(int i = 0; inner_str[i]; i++)
-    {
-      if(inner_str[i] == ',') num_tokens++;
-    }
-
-    // +1 to add a NULL to signal the end
-    gchar **token_array = g_malloc0((num_tokens + 1) * sizeof(char *));
-    char *token = strtok(inner_str, ",");
-    for(int i = 0; i < num_tokens; i++)
-    {
-      token_array[i] = g_utf8_strdown(token, -1);
-      g_strstrip(token_array[i]);
-      token = strtok(NULL, ",");
-    }
-    if(token != NULL)
-    {
-      puts("This shouldn't happen");
-    }
-
-    gtk_tree_model_foreach(model, (GtkTreeModelForeachFunc)list_exact_match_string, token_array);
-
-    for(int i = 0; i < num_tokens; i++)
-    {
-      g_free(token_array[i]);
-    }
-    g_free(token_array);
-    g_free(inner_str);
-
-    gtk_tree_selection_unselect_all(gtk_tree_view_get_selection(d->view));
-    return; // early exit
-  }
-
-  // if needed, we restrict the tree to matching entries
-  if(dr->typing && (property == DT_COLLECTION_PROP_CAMERA || property == DT_COLLECTION_PROP_FILENAME
-                    || property == DT_COLLECTION_PROP_FILMROLL || property == DT_COLLECTION_PROP_LENS
-                    || property == DT_COLLECTION_PROP_APERTURE
-                    || property == DT_COLLECTION_PROP_FOCAL_LENGTH || property == DT_COLLECTION_PROP_ISO
-                    || property == DT_COLLECTION_PROP_MODULE || property == DT_COLLECTION_PROP_ORDER
-                    || (property >= DT_COLLECTION_PROP_METADATA &&
-                        property < DT_COLLECTION_PROP_METADATA + DT_METADATA_NUMBER)))
-    gtk_tree_model_foreach(model, (GtkTreeModelForeachFunc)list_match_string, dr);
-  // we update list selection
+  // unselect to prepare for selection
   gtk_tree_selection_unselect_all(gtk_tree_view_get_selection(d->view));
 
-  if(property == DT_COLLECTION_PROP_APERTURE || property == DT_COLLECTION_PROP_FOCAL_LENGTH
-     || property == DT_COLLECTION_PROP_ISO || property == DT_COLLECTION_PROP_EXPOSURE
-     || property == DT_COLLECTION_PROP_ASPECT_RATIO)
+  GRegex *regex_rng = NULL;
+  GMatchInfo *match_info_rng = NULL;
+  int match_count;
+
+  // test selection range [xxx;xxx] (only applies for numerical filters)
+  regex_rng = g_regex_new("^\\s*\\[\\s*(.*)\\s*;\\s*(.*)\\s*\\]\\s*$", 0, 0, NULL);
+  g_regex_match_full(regex_rng, gtk_entry_get_text(GTK_ENTRY(dr->text)), -1, 0, 0, &match_info_rng, NULL);
+  match_count = g_match_info_get_match_count(match_info_rng);
+
+  if((match_count == 3)
+     && (property == DT_COLLECTION_PROP_APERTURE || property == DT_COLLECTION_PROP_FOCAL_LENGTH
+         || property == DT_COLLECTION_PROP_ISO || property == DT_COLLECTION_PROP_EXPOSURE
+         || property == DT_COLLECTION_PROP_ASPECT_RATIO))
   {
-    // test selection range [xxx;xxx]
+    _range_t *range = (_range_t *)calloc(1, sizeof(_range_t));
+    range->start = g_match_info_fetch(match_info_rng, 1);
+    range->stop = g_match_info_fetch(match_info_rng, 2);
 
-    regex = g_regex_new("^\\s*\\[\\s*(.*)\\s*;\\s*(.*)\\s*\\]\\s*$", 0, 0, NULL);
-    g_regex_match_full(regex, gtk_entry_get_text(GTK_ENTRY(dr->text)), -1, 0, 0, &match_info, NULL);
-    match_count = g_match_info_get_match_count(match_info);
-
-    if(match_count == 3)
+    gtk_tree_model_foreach(d->listfilter, (GtkTreeModelForeachFunc)range_select, range);
+    if(range->path1 && range->path2)
     {
-      _range_t *range = (_range_t *)calloc(1, sizeof(_range_t));
-      range->start = g_match_info_fetch(match_info, 1);
-      range->stop = g_match_info_fetch(match_info, 2);
-
-      gtk_tree_model_foreach(d->listfilter, (GtkTreeModelForeachFunc)range_select, range);
-      if(range->path1 && range->path2)
-      {
-        gtk_tree_selection_select_range(gtk_tree_view_get_selection(d->view), range->path1, range->path2);
-      }
-      g_free(range->start);
-      g_free(range->stop);
-      gtk_tree_path_free(range->path1);
-      gtk_tree_path_free(range->path2);
-      free(range);
+      gtk_tree_selection_select_range(gtk_tree_view_get_selection(d->view), range->path1, range->path2);
     }
-    else
-      gtk_tree_model_foreach(d->listfilter, (GtkTreeModelForeachFunc)list_select, dr);
+    g_free(range->start);
+    g_free(range->stop);
+    gtk_tree_path_free(range->path1);
+    gtk_tree_path_free(range->path2);
+    free(range);
 
-    g_match_info_free(match_info);
-    g_regex_unref(regex);
+    g_match_info_free(match_info_rng);
+    g_regex_unref(regex_rng);
   }
   else
-    gtk_tree_model_foreach(d->listfilter, (GtkTreeModelForeachFunc)list_select, dr);
+  {
+
+    GRegex *regex_ex = NULL;
+    GMatchInfo *match_info_ex = NULL;
+
+    // try to match [foo, bar] style exact string
+    regex_ex = g_regex_new("^\\s*\\[\\s*([^\\[\\]]+)\\s*\\]\\s*$", 0, 0, NULL);
+    g_regex_match_full(regex_ex, gtk_entry_get_text(GTK_ENTRY(dr->text)), -1, 0, 0, &match_info_ex, NULL);
+    match_count = g_match_info_get_match_count(match_info_ex);
+
+    if(match_count == 2)
+    {
+      gchar *inner_str = g_match_info_fetch(match_info_ex, 1);
+
+      // count number of commas as a measure of tokens
+      int num_tokens = 1;
+      for(int i = 0; inner_str[i]; i++)
+      {
+        if(inner_str[i] == ',') num_tokens++;
+      }
+
+      gchar **token_array = g_malloc0(num_tokens * sizeof(char *));
+      char *token = strtok(inner_str, ",");
+      int token_ind;
+      for(token_ind = 0; token_ind < num_tokens && token; token_ind++)
+      {
+        token_array[token_ind] = g_utf8_strdown(token, -1);
+        g_strstrip(token_array[token_ind]);
+        token = strtok(NULL, ",");
+      }
+
+      _exactmatch_t exactmatch = { token_array, token_ind, dr };
+      gtk_tree_model_foreach(model, (GtkTreeModelForeachFunc)list_exact_match_string, &exactmatch);
+
+      for(int i = 0; i < num_tokens; i++)
+      {
+        g_free(token_array[i]);
+      }
+      g_free(token_array);
+      g_free(inner_str);
+    }
+    // no match with exact pattern either
+    else
+    {
+      // if needed, we restrict the tree to matching entries
+      if(dr->typing
+         && (property == DT_COLLECTION_PROP_CAMERA || property == DT_COLLECTION_PROP_FILENAME
+             || property == DT_COLLECTION_PROP_FILMROLL || property == DT_COLLECTION_PROP_LENS
+             || property == DT_COLLECTION_PROP_APERTURE || property == DT_COLLECTION_PROP_FOCAL_LENGTH
+             || property == DT_COLLECTION_PROP_ISO || property == DT_COLLECTION_PROP_MODULE
+             || property == DT_COLLECTION_PROP_ORDER
+             || (property >= DT_COLLECTION_PROP_METADATA
+                 && property < DT_COLLECTION_PROP_METADATA + DT_METADATA_NUMBER)))
+        gtk_tree_model_foreach(model, (GtkTreeModelForeachFunc)list_match_string, dr);
+    }
+
+    g_match_info_free(match_info_ex);
+    g_regex_unref(regex_ex);
+  }
+
+  // highlight exact matches (w/o using exact match syntax)
+  gtk_tree_model_foreach(d->listfilter, (GtkTreeModelForeachFunc)list_select, dr);
 }
 
 static void update_view(dt_lib_collect_rule_t *dr)
